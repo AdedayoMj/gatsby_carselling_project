@@ -15,16 +15,31 @@ import "./layout.css"
 
 import Navbar from  "./Global/Navbar"
 import Footer from "./Global/Footer"
+import { Box } from "@mui/material"
+import { makeStyles } from "@mui/styles"
 
 interface MyComponentProps {
   children: React.ReactNode
 }
+
+const useStyles = makeStyles(() => ({
+  root: {
+    display: 'relative',
+    minHeight: '100vh',
+    width: '100%',
+    backgroundColor: 'white',
+  },
+}))
+
 function Layout({ children }: MyComponentProps ): JSX.Element {
- return <>
+  const classes = useStyles()
+ return(
+ <Box className={classes.root}>
  <Navbar/>
  {children}
  <Footer/>
- </>;
+ </Box>
+ )
 }
 // const  Layout: React.FC =({ children })=> <>{children}</>
 
