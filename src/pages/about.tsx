@@ -1,14 +1,14 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BackGroundSection from "../components/Global/BackGroundSection"
 import { makeStyles } from "@mui/styles"
 import FloatingButton from "../components/Global/FloatingButton"
-import SearchComponet from "../components/Global/SearchComponent"
-import AdditionInfo from "../components/Home/additionInfo"
+// import SearchComponet from "../components/Global/SearchComponent"
+// import AdditionInfo from "../components/Home/additionInfo"
 type IndexPorps = {
   data: any
 }
@@ -22,13 +22,13 @@ const useStyles = makeStyles(() => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     width: "100%",
-    height: "80vh",
+    height: "100vh",
     marginTop: 15,
     position: "absolute",
   },
 }))
 
-const IndexPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
+const AboutPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
   const classes = useStyles()
 
   return (
@@ -37,22 +37,23 @@ const IndexPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
 
       <BackGroundSection
         img={data.backgroundImg.childImageSharp.fluid}
-        title="Import and buy automobile from Europe and America"
-        content="Request a consultation, our salesteam will contact you as soon
-      as possible and help select your desireable automobile, more
-      cheaper than the market prices"
+        title="About Us"
+        content="Bayinks was founded by two brothers, Daniel and Dara.We are know for specialist in importing cars from America and
+        Europe. We have connection that will delivery your cars with a
+        short timeframe. Our brands and dealers represent integrity
+        and quality. We have been in importation business for over 10
+        years and have received several awards for delivering quality
+        affordable cars."
         styleClass={classes.imageStyle}
-        ishome={true}
         children={<FloatingButton />}
+        ishome={false}
       />
-      <SearchComponet />
-      <AdditionInfo />
     </Layout>
   )
 }
 export const query = graphql`
   {
-    backgroundImg: file(relativePath: { eq: "desktop.jpg" }) {
+    backgroundImg: file(relativePath: { eq: "about.jpg" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
@@ -61,4 +62,4 @@ export const query = graphql`
     }
   }
 `
-export default IndexPage
+export default AboutPage

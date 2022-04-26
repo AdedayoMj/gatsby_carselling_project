@@ -12,27 +12,24 @@ import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import { makeStyles } from "@mui/styles"
-import { Theme } from "@mui/material"
 import { Link } from "gatsby"
 
 const pages = [
   { id: 1, title: "Home", route: "/" },
-  { id: 2, title: "Used", route: "/used-cars" },
-  { id: 3, title: "New", route: "/new-cars" },
-  { id: 4, title: "Dealers", route: "/dealer" },
-  { id: 5, title: "Contact", route: "/contact" },
+  { id: 2, title: "Cars", route: "/cars" },
+  { id: 3, title: "About", route: "/about" },
 ]
 const settings = ["Account", "Dashboard", "Logout"]
 
-const styles = makeStyles((theme: Theme) => ({
+const styles = makeStyles(() => ({
   navigation: {
     backgroundColor: "black !important",
     boxShadow: "none",
   },
-  menuItem: { marginLeft: "30px !important", marginRight: "30px !important" },
+  menuItem: { marginLeft: "50px !important", marginRight: "50px !important" },
   appTitle: {
     marginLeft: "50px !important",
-    paddingRight: "200px",
+    paddingRight: "300px",
   },
 }))
 

@@ -14,6 +14,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import "./layout.css"
 
 import Navbar from  "./Global/Navbar"
+import Footer from "./Global/Footer"
 
 interface MyComponentProps {
   children: React.ReactNode
@@ -22,6 +23,7 @@ function Layout({ children }: MyComponentProps ): JSX.Element {
  return <>
  <Navbar/>
  {children}
+ <Footer/>
  </>;
 }
 // const  Layout: React.FC =({ children })=> <>{children}</>
