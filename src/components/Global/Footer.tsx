@@ -3,7 +3,6 @@ import {
   Container,
   Grid,
   IconButton,
-  Link,
   Theme,
   Typography,
 } from "@mui/material"
@@ -14,6 +13,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import { makeStyles } from "@mui/styles"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -27,10 +27,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: "bold",
     fontSize: 15,
     color: "white",
+    textTransform:'capitalize'
   },
   link: {
-    color: "white",
-    textDecoration: "none",
+    color: "white !important",
+    textDecoration: "none"
+  },
+  box: {
     marginTop: 20,
     marginBottom: 20,
   },
@@ -51,10 +54,13 @@ const helpfulLinks = [
     name: "About Us",
     route: "/about",
   },
-  { name: "Services", route: "/services" },
+  {
+    name: "Services",
+    route: "/",
+  },
   {
     name: "FAQs",
-    route: "/faq",
+    route: "/",
   },
 ]
 const serviceLinks = [
@@ -62,10 +68,13 @@ const serviceLinks = [
     name: "Consultation",
     route: "/",
   },
-  { name: "Funding", route: "/" },
   {
-    name: "Transportation",
-    route: "/faq",
+    name: "Funding",
+    route: "/",
+  },
+  {
+    name: "Delivery",
+    route: "/",
   },
 ]
 
@@ -103,11 +112,11 @@ export default function Footer() {
               <Box>
                 <Box className={classes.subTitle}>Helpful Links</Box>
               </Box>
-              {helpfulLinks.map(({ name, route }) => {
+              {helpfulLinks.map((item, index) => {
                 return (
-                  <Box key={route} className={classes.link}>
-                    <Link href={route} color="inherit">
-                      <KeyboardArrowRightIcon /> {name}
+                  <Box key={index} className={classes.box}>
+                    <Link to={item.route} className={classes.link}>
+                      <KeyboardArrowRightIcon /> {item.name}
                     </Link>
                   </Box>
                 )
@@ -117,11 +126,11 @@ export default function Footer() {
               <Box>
                 <Box className={classes.subTitle}>Our services</Box>
               </Box>
-              {serviceLinks.map(({ name, route }) => {
+              {serviceLinks.map((name, index) => {
                 return (
-                  <Box key={route} className={classes.link}>
-                    <Link href={route} color="inherit">
-                      <KeyboardArrowRightIcon /> {name}
+                  <Box key={index} className={classes.box}>
+                    <Link to={name.route} className={classes.link}>
+                      <KeyboardArrowRightIcon /> {name.name}
                     </Link>
                   </Box>
                 )

@@ -34,7 +34,7 @@ const AdditionInfo = () => {
           <Title title="additional services"/>
         <Grid
           container
-          spacing={2}
+          spacing={3}
           style={{ marginTop: 30, marginBottom: 100 }}
           display="flex"
           justifyContent="center"

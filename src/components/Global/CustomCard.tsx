@@ -14,7 +14,7 @@ interface Props {
 
 const CustomCard: React.FC<Props> = ({ title, context, icon }: Props) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 , boxShadow: 7 }}>
       <CardHeader
         avatar={
           <Avatar

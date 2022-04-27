@@ -26,10 +26,17 @@ const styles = makeStyles(() => ({
     backgroundColor: "black !important",
     boxShadow: "none",
   },
-  menuItem: { marginLeft: "50px !important", marginRight: "50px !important" },
-  appTitle: {
+  menuItem: {
     marginLeft: "50px !important",
-    paddingRight: "300px",
+    marginRight: "50px !important",
+    color: "white",
+    display: "block",
+  },
+  appTitle: {
+    marginLeft: "110px !important",
+    paddingRight: "250px",
+    fontSize: "32px !important",
+    fontWeight: "900 !important",
   },
 }))
 
@@ -44,17 +51,17 @@ const NavBar = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
   }
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget)
-  }
+  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElUser(event.currentTarget)
+  // }
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null)
+  // }
 
   return (
     <AppBar position="static" elevation={0} className={classes.navigation}>
@@ -106,6 +113,7 @@ const NavBar = () => {
                 <Link
                   key={page.id}
                   to={page.route}
+                  activeStyle={{ color: "#ff1493" }}
                   style={{ textDecoration: "none" }}
                 >
                   <MenuItem onClick={handleCloseNavMenu}>
@@ -128,20 +136,23 @@ const NavBar = () => {
               <Link
                 key={page.id}
                 to={page.route}
+                activeStyle={{ color: "#ff1493" }}
+                onClick={handleCloseNavMenu}
+                className={classes.menuItem}
                 style={{ textDecoration: "none" }}
               >
-                <Button
+                {/* <Button
                   onClick={handleCloseNavMenu}
                   className={classes.menuItem}
                   sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page.title}
-                </Button>
+                > */}
+                {page.title}
+                {/* </Button> */}
               </Link>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -169,7 +180,7 @@ const NavBar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
