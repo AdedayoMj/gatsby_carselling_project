@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { getImage, StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -30,6 +30,7 @@ const useStyles = makeStyles(() => ({
 
 const IndexPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
   const classes = useStyles()
+ 
 
   return (
     <Layout>
@@ -48,17 +49,16 @@ const IndexPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
       <SearchComponet />
       <AdditionInfo />
     </Layout>
-  )
+  );
 }
-export const query = graphql`
-  {
-    backgroundImg: file(relativePath: { eq: "desktop.jpg" }) {
-      childImageSharp {
+export const query = graphql`{
+  backgroundImg: file(relativePath: {eq: "desktop.jpg"}) {
+    childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
-    }
   }
+}
 `
 export default IndexPage

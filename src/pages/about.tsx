@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 import BackGroundSection from "../components/Global/BackGroundSection"
 import { makeStyles } from "@mui/styles"
 import FloatingButton from "../components/Global/FloatingButton"
+import { getImage } from "gatsby-plugin-image"
 // import SearchComponet from "../components/Global/SearchComponent"
 // import AdditionInfo from "../components/Home/additionInfo"
 type IndexPorps = {
@@ -30,7 +31,6 @@ const useStyles = makeStyles(() => ({
 
 const AboutPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
   const classes = useStyles()
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -51,15 +51,14 @@ const AboutPage: React.FunctionComponent<IndexPorps> = ({ data }) => {
     </Layout>
   )
 }
-export const query = graphql`
-  {
-    backgroundImg: file(relativePath: { eq: "about.jpg" }) {
-      childImageSharp {
+export const query = graphql`{
+  backgroundImg: file(relativePath: {eq: "about.jpg"}) {
+    childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
-    }
   }
+}
 `
 export default AboutPage

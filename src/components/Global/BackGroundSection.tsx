@@ -9,8 +9,8 @@ interface BackgroundData {
   title?: string
   content?: string
   children?: JSX.Element[] | JSX.Element
-  styleClass: any,
-  ishome?:boolean
+  styleClass: any
+  ishome?: boolean
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -39,7 +39,7 @@ const BackGroundSection: React.FC<BackgroundData> = ({
   const classes = useStyles()
 
   return (
-    <BackgroundImage  className={styleClass} fluid={img}>
+    <BackgroundImage className={styleClass} fluid={img}>
       <Box>
         <Container>
           <Grid container spacing={2}>
@@ -51,7 +51,7 @@ const BackGroundSection: React.FC<BackgroundData> = ({
                 <Typography>{content}</Typography>
               </div>
 
-              {ishome&&<CustomButton name="consultation" />}
+              {ishome && <CustomButton name="consultation" />}
             </Grid>
           </Grid>
         </Container>
@@ -60,5 +60,8 @@ const BackGroundSection: React.FC<BackgroundData> = ({
     </BackgroundImage>
   )
 }
-
+BackGroundSection.defaultProps = {
+  title: "default title",
+  content: "default content",
+}
 export default BackGroundSection

@@ -40,16 +40,18 @@ const Cars: React.FC<IndexPorps> = ({ data }) => {
   const classes = useStyles()
   return (
     <Layout>
-        
       <Container>
-      <BackGroundSection
+        <Box className={classes.root}>
+          <Seo title="cars" />
+          <BackGroundSection
             img={data.backgroundImg.childImageSharp.fluid}
+            title="Import and buy automobile from Europe and America"
+            content="Request a consultation, our salesteam will contact you as soon
+      as possible and help select your desireable automobile, more
+      cheaper than the market prices"
             styleClass={classes.imageStyle}
             ishome={false}
           />
-        <Box className={classes.root}>
-          <Seo title="cars" />
-          
           <Grid container spacing={2}>
             <Grid item sm={10} md={10} lg={3}>
               <h1>Cars product</h1>
